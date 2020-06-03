@@ -25,7 +25,7 @@ class WeatherLocation extends Component {
             city,
             data: null
         };
-        console.log('constructor');
+        console.log(this.state);
     }
 
 
@@ -48,7 +48,6 @@ class WeatherLocation extends Component {
             const newWeather = transformWeather(data);
             console.log(newWeather);
             this.setState({
-                city: 'MEXICO',
                 data: newWeather
             });
 
@@ -58,27 +57,23 @@ class WeatherLocation extends Component {
     }
 
     render() {
+        const {onWeatherLocationClick}= this.props;
         console.log('render');
         const { city, data } = this.state;
-        return ( <
-                div className = "WeatherLocationCont" >
-                <
-                Location city = { city }
-                /> {
-                data ?
-                <
-                WheaterData data = { data }
-                />: <
-                CircularProgress size = { 50 }
-                / >
-            } <
-            /div >
+        console.log(city);
+        return (
+          <div className = "WeatherLocationCont" onClick={onWeatherLocationClick} >
+                < Location city = { city } /> { data ?
+                < WheaterData data = { data } /> : < CircularProgress size = { 50 } / >
+            }
+          </div >
     );
 }
 };
 
 WeatherLocation.propTypes = {
     city: PropTypes.string.isRequired,
+    onWeatherLocationClick: PropTypes.func,
 }
 
 

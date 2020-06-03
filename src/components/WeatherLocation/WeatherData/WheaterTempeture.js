@@ -10,6 +10,8 @@ import {
     RAIN,
     SNOW,
     WINDY,
+    THUNDER,
+    DRIZZLE
 }
 from '../../../constants/weateher';
 
@@ -20,7 +22,8 @@ const icons = {
     [CLOUD]: "cloud",
     [RAIN]: "rain",
     [SNOW]: "snow",
-    [WINDY]: "windy"
+    [WINDY]: "windy",
+    [THUNDER]:"day-thunderstore"
 };
 
 const getWheaterIcon = wheaterState => {

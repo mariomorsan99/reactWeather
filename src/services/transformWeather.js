@@ -3,6 +3,10 @@ import {
     CLOUD,
     CLOUDY,
     SUN,
+    RAIN,
+    SNOW,
+    THUNDER,
+    DRIZZLE
 }
 from '../constants/weateher';
 
@@ -11,15 +15,34 @@ const getTemp = kelvin => {
 }
 
 const getWheatherState = weather_data => {
-    return SUN;
+    const {id} = weather_data;
+    if(id< 300){
+      return THUNDER;
+    }
+    else if( id < 400){
+       return DRIZZLE;
+    }
+    else if( id < 600){
+       return RAIN;
+    }
+    else if( id < 700){
+       return SNOW;
+    }
+    else if( id === 800){
+       return SUN;
+    }
+    else {
+       return CLOUDY;
+    }
 }
 
 const transformWeather = weatherData => {
     //desestructuring
     const { humidity, temp } = weatherData.main;
     const { speed } = weatherData.wind;
-    const wheaterState = getWheatherState(weatherData);
+    const wheaterState = getWheatherState(weatherData.weather[0]);
 
+   console.log(temp);
     //constante literal
     const data = {
         humidity,
@@ -27,7 +50,7 @@ const transformWeather = weatherData => {
         wheaterState,
         wind: `${speed} m/s`
     }
-
+    console.log(data.tempeture);
     return data;
 }
 
