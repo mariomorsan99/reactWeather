@@ -8,6 +8,7 @@ import transformWeather from './../../services/transformWeather';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import getUrlWeatherByCity from './../../services/getUrlWeatherByCity';
 
+
 const data = {
     tempeture: 5,
     wheaterState: null,

@@ -38,6 +38,7 @@ const getWheatherState = weather_data => {
 
 const transformWeather = weatherData => {
     //desestructuring
+    console.log(weatherData);
     const { humidity, temp } = weatherData.main;
     const { speed } = weatherData.wind;
     const wheaterState = getWheatherState(weatherData.weather[0]);
