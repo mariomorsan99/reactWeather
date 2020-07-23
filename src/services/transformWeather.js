@@ -38,20 +38,16 @@ const getWheatherState = weather_data => {
 
 const transformWeather = weatherData => {
     //desestructuring
-    console.log(weatherData);
     const { humidity, temp } = weatherData.main;
     const { speed } = weatherData.wind;
     const wheaterState = getWheatherState(weatherData.weather[0]);
-
-   console.log(temp);
     //constante literal
     const data = {
         humidity,
-        tempeture: getTemp(temp),
+        tempeture:Math.trunc(getTemp(temp)),
         wheaterState,
         wind: `${speed} m/s`
     }
-    console.log(data.tempeture);
     return data;
 }
 

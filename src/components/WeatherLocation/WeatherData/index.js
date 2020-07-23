@@ -14,7 +14,6 @@ import './styles.css';
 
 
 const WheaterData = ({ data: { tempeture, wheaterState, humidity, wind } }) => {
-
     return (
       <div className = "weatherDataCont" >
         <WheaterTempeture temperature = { tempeture }

@@ -10,20 +10,17 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import ForecastExtenden from './components/ForecastExtend'
 
-const cities = ["Bogota", "Bogota"];
+const cities = ["Bogota", "London","Mexico", "Argentina"];
 
 class App extends Component {
 
     constructor(){
-
       super();
       this.state={city:null};
-
     }
 
     handlerWeatherLocation = (city) => {
         console.log("handlerWeatherLocation");
-        console.log(city);
         this.setState({city});
     };
 
@@ -54,7 +51,7 @@ class App extends Component {
                   <div className="details">
                   {
                     city===null?
-                    <h1>no se selecciono ciudad</h1>
+                    <h1>no hay ciudad</h1>
                     :<ForecastExtenden city={city}></ForecastExtenden>
                   }
                   </div>

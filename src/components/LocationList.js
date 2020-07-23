@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import './styles.css'
 
 const LocationList = ({ cities, onSelectedLocation }) => {
+
     const handlerWeatherLocationClick = (city) => {
-        console.log(city);
         onSelectedLocation(city);
     };
 

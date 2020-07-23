@@ -10,7 +10,7 @@ import getUrlWeatherByCity from './../../services/getUrlWeatherByCity';
 
 
 const data = {
-    tempeture: 5,
+    temperature: 5,
     wheaterState: null,
     humidity: 30,
     wind: '10 m/s'
@@ -26,7 +26,6 @@ class WeatherLocation extends Component {
             city,
             data: null
         };
-        console.log(this.state);
     }
 
 
@@ -47,21 +46,16 @@ class WeatherLocation extends Component {
             return resolve.json();
         }).then(data => {
             const newWeather = transformWeather(data);
-            console.log(newWeather);
             this.setState({
                 data: newWeather
             });
 
         });
-
-        console.log("actualizando");
     }
 
     render() {
         const {onWeatherLocationClick}= this.props;
-        console.log('render');
         const { city, data } = this.state;
-        console.log(city);
         return (
           <div className = "WeatherLocationCont" onClick={onWeatherLocationClick} >
                 < Location city = { city } /> { data ?
