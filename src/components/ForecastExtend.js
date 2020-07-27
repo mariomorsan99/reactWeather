@@ -35,20 +35,27 @@ class ForecastExtenden extends Component {
  }
 
  componentDidMount() {
-     this.PronosticExtend();
+   this.updateCity(this.props.city)
  }
 
-PronosticExtend(){
-  const {city} =this.props;
+componentWillReceiveProps(nextProps){
+  if(nextProps.city!== this.props.city){
+    this.setState({forecastData:null})
+    this.updateCity(nextProps.city);
+  }
+}
+
+updateCity=city=>{
+  // const {city} =this.props;
   const api_weather = getForecastExtend(city);
   fetch(api_weather).then(resolve => {
       return resolve.json();
   }).then(weather_data => {
-      console.log(weather_data);
       const forecastData= transformForecast(weather_data);
       console.log(forecastData);
       this.setState({forecastData});
   });
+
 }
 
 

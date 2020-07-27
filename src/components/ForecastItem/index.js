@@ -2,16 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import WheaterData from './../WeatherLocation/WeatherData';
 
-
-
-
-
 const ForecastItem =({weeekday, hour, data})=>{
   console.log(data);
   console.log(weeekday);
   console.log(hour);
 return(  <div>
-   <h2>{weeekday} Hora:{hour}</h2>
+   <h2>{weeekday} - {hour}hs</h2>
    <WheaterData data={data}></WheaterData>
   </div>)
 }
